@@ -11,24 +11,62 @@
         android:layout_width="89dp"
         android:layout_height="53dp"
         android:text="Name"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="152dp" />
+        android:textAppearance="@android:style/TextAppearance.StatusBar"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="61dp" />
 
     <EditText
         android:id="@+id/editText_name"
-        android:layout_width="308dp"
-        android:layout_height="53dp"
+        android:layout_width="287dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="152dp" />
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="61dp" />
 
     <Button
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="addData"
         android:text="Add Data"
         tools:layout_editor_absoluteX="65dp"
         tools:layout_editor_absoluteY="431dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="286dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="88dp"
+        android:layout_height="53dp"
+        android:text="Email"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="135dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="93dp"
+        android:layout_height="61dp"
+        android:text="Address"
+        android:textAppearance="@android:style/TextAppearance.Theme"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="277dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="213dp" />
 
 </android.support.constraint.ConstraintLayout>

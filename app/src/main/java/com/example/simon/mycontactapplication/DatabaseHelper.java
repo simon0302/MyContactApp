@@ -1,5 +1,6 @@
 package com.example.simon.mycontactapplication;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -18,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
 
     public DatabaseHelper(Context context) {
+
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -25,7 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME_TEXT)");
-
     }
 
     @Override
@@ -33,6 +34,20 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+    }
 
+    public boolean insertData(String name) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+
+        long result = db.insert(TABLE_NAME, null, contentValues);
+
+        if (result == -1){
+            return false;
+        } else {
+            return true;
+        }
     }
 }
