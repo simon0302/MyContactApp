@@ -8,11 +8,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     EditText editName;
     Button btnAddData;
+
+    //tasks
+    EditText editAddress;
+    EditText editAge;
+    EditText editEmail;
 
 
     @Override
@@ -25,11 +32,18 @@ public class MainActivity extends AppCompatActivity {
 
         //add layout here
         editName = (EditText) findViewById(R.id.editText_name);
+
+        //not sure if correct
+        editAddress = (EditText) findViewById(R.id.editText_name);
+        editAge = (EditText) findViewById(R.id.editText_name);
+        editEmail = (EditText) findViewById(R.id.editText_name);
     }
 
     public void addData(View v) {
 
         Log.d("MyContact", " addData() is used");
+
+        //this means that only the name is required, but not the address, age, or email
         boolean isInserted = myDb.insertData(editName.getText().toString());
 
         if (isInserted == true) {
