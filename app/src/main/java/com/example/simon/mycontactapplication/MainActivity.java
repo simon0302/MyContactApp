@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         //set up  a loop with cursor (res) and using the method moveToNext()
-        for (int i = 0; i < res; i++) {
-            moveToNext();
+
+        while (res.moveToNext()) {
             //inside loop, append each column to the buffer
             buffer.append(editName)
             buffer.append(editAddress);
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
         //display the message using showMessage() call
         showMessage("Data", buffer.toString());
-
     }
 
     private void showMessage(String title, String message) {
