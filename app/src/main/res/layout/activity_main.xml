@@ -11,7 +11,7 @@
         android:layout_width="89dp"
         android:layout_height="53dp"
         android:text="Name"
-        android:textAppearance="@android:style/TextAppearance.StatusBar"
+        android:textAppearance="                                                                                 @android:style/TextAppearance.StatusBar"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="61dp" />
 
@@ -69,22 +69,13 @@
         tools:layout_editor_absoluteX="116dp"
         tools:layout_editor_absoluteY="213dp" />
 
-    <TextView
-        android:id="@+id/age icon"
-        android:layout_width="94dp"
-        android:layout_height="51dp"
-        android:text="Age"
-        android:textAppearance="@android:style/TextAppearance.Theme"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="295dp" />
-
-    <EditText
-        android:id="@+id/age edit"
-        android:layout_width="273dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="295dp" />
+    <Button
+        android:id="@+id/contact button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="viewData"
+        android:text="View Contacts"
+        tools:layout_editor_absoluteX="207dp"
+        tools:layout_editor_absoluteY="429dp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.simon.mycontactapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -15,6 +16,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_NAME = "contact_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
+
+    public static final String COL_3 = "EMAIL";
+    public static final String COL_4 = "ADDRESS";
+
 
 
 
@@ -36,11 +41,14 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public boolean insertData(String name) {
+    public boolean insertData(String name, String email, String address) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
+
+        contentValues.put(COL_3, email);
+        contentValues.put(COL_4, address);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
@@ -50,4 +58,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             return true;
         }
     }
+
+    public Cursor getAllData() {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from" + TABLE_NAME, null);
+        return res;
+    }
+
 }

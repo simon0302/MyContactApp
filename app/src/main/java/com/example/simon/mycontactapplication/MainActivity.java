@@ -1,5 +1,6 @@
 package com.example.simon.mycontactapplication;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     //tasks
     EditText editAddress;
-    EditText editAge;
     EditText editEmail;
 
 
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         //not sure if correct
         editAddress = (EditText) findViewById(R.id.editText_name);
-        editAge = (EditText) findViewById(R.id.editText_name);
         editEmail = (EditText) findViewById(R.id.editText_name);
     }
 
@@ -56,6 +55,37 @@ public class MainActivity extends AppCompatActivity {
             //insert failure toast message here
             Toast.makeText(MainActivity.this, "Failure Inserting Contact", Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void viewData(View v) {
+
+        Cursor res = myDb.getAllData();
+        if (res.getCount() == 0) {
+            showMessage("Error", "No data is found in the database");
+            //put a log d message and toast message
+            Log.d("MyContact", "Data not found in database");
+            Toast.makeText(MainActivity.this, "Data not found in database", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        //set up  a loop with cursor (res) and using the method moveToNext()
+        for (int i = 0; i < res; i++) {
+            moveToNext();
+            //inside loop, append each column to the buffer
+            buffer.append(editName)
+            buffer.append(editAddress);
+            buffer.append(editEmail);
+        }
+
+        //display the message using showMessage() call
+        showMessage("Data", buffer.toString());
+
+    }
+
+    private void showMessage(String title, String message) {
+        //alertdialog.builder call
 
     }
 }
